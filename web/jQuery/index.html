@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.2.custom.css" />
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/graph.js"></script>
+
+<style type="text/css">
+.text1 {font-family: Arial, Helvetica, sans-serif;font-size: 12px;color: gray;text-align : left;}
+.text2 {font-family: Arial, Helvetica, sans-serif;font-size: 8px;color: Silver;text-align : left;}
+.titre1 {font-family: Arial, Helvetica, sans-serif;font-size: 24px;font-weight: bold;color: #555555;}
+.titre2 {font-family: Arial, Helvetica, sans-serif;font-size: 18px;font-weight: bold;color: #cccccc;}
+/* pour graph */
+#container {  width:960px; margin-left:auto; margin-right:auto; margin-top:190px; } 
+#graph { padding-left:10px; width:800px}
+.ui-widget-header { padding:10px; width:790px; margin-bottom:10px; margin-top:10px;}
+</style>
+<script type="text/javascript">
+$(function(){
+		   var d = [34,23,12,45,67,34,78,44,60.5,44.6];
+		   var c = ["January","Febuary","March","April","May","June","July","August","Septembre","Octobre"];
+		   $("#graph").graph({height:300,width:600,data:d,categories:c,legend:"This is a test"});
+
+		   });
+$(document).ready(function(){
+    $('#switcher').themeswitcher();
+});
+
+</script>
+
+<!--<META http-equiv="Refresh" content="10; URL=http://www.eticweb.com">-->
+<title>EticWeb conseils TIC et Dévelopement Durable en paca</title>
+</head>
+
+<body>
+<div style="text-align: center;" class="spacer5">&nbsp;<br>
+
+&nbsp;<br>
+
+&nbsp;<br>
+</div>
+
+<div style="text-align: center;">
+
+<a href="http://www.eticweb.com" title="EticWeb conseils en TIC et Dévelopement Durable en paca"><img style="border:solid 1px #000000" alt="EticWeb conseils en TIC et Dévelopement Durable en paca" src="http://eticweb.fr/logos/EticWeb-conseils-tic.jpg" border=""></a><br>
+
+<span class="titre1">EticWeb optimisation de vos projets internet.</span><br>
+
+<span class="titre2"><a href="http://www.eticweb.com">Venez d&eacute;couvrir nos solutions</a><br>
+
+<span class="text2">EticWeb</span><span class="text1">&reg;</span><span class="text2"> est une marque d&eacute;pos&eacute;e.</span>
+</div>
+<!-- Debut code pour graph -->
+<div id="container">
+<div id="switcher"></div>
+
+<div id="graph">
+
+</div>
+</div>
+</body>
+</html>
+
+
+
+</head>
+<script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/"></script>
+
+<body>
