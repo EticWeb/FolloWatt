@@ -1,5 +1,5 @@
-FolloWatt est un projet open source initialisé par la société EticWeb (http://eticweb.com), FolloWatt est une application Web utilisant une base de donnée MySql ainsi qu'un script Perl permettant d'afficher en temps réel la consommation électrique d'une maison, entreprise ou tout autre installation.
-FolloWatt nécéssite l'installation d'un baromètre énergétique tel que le BaroWatt de la société WattEco ou le ENVI de la société CurrentCost.
+FolloWatt est un projet open source initialis√© par la soci√©t√© EticWeb (http://eticweb.com), FolloWatt est une application Web utilisant une base de donn√©e MySql ainsi qu'un script Perl permettant d'afficher en temps r√©el la consommation √©lectrique d'une maison, entreprise ou tout autre installation.
+FolloWatt n√©c√©ssite l'installation d'un barom√®tre √©nerg√©tique tel que le BaroWatt de la soci√©t√© WattEco ou le ENVI de la soci√©t√© CurrentCost.
 
-Objectif : Lire et sauvegarder dans une base de données les informations envoyés par le Baromètre énergétique via un câble USB raccordé à un ordinateur, et réalisation de graphique(s) pour la consultation des données enregistrées via un navigateur tel FireFox, Opera ou Safari.
-L'application Web pouvant ainsi être consultée depuis tout équipement connecté à internet.
+Objectif : Lire et sauvegarder dans une base de donn√©es les informations envoy√©s par le Barom√®tre √©nerg√©tique via un c√¢ble USB raccord√© √† un ordinateur, et r√©alisation de graphique(s) pour la consultation des donn√©es enregistr√©es via un navigateur tel FireFox, Opera ou Safari.
+L'application Web pouvant ainsi √™tre consult√©e depuis tout √©quipement connect√© √† internet.
