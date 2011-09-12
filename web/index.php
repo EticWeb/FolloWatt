@@ -7,6 +7,7 @@ include 'webser.php';
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="fr-FR">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Consommation instantanée - EticWeb</title>
 
 <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="jqPlot/dist/excanvas.js"></script><![endif]-->
@@ -117,25 +118,30 @@ function refreshConIns() {
     $.ajax({
 		url: 'webser.php',
 		type: 'GET',
-		data: { 'type': 'last_realtime', 'nbval' : '1', 'nocache' : Math.random() * 100 },
+		data: { 'type': 'realtime', 'nbval' : '1', 'nocache' : Math.random() * 100 },
 		dataType: 'json',
 		success: function (data) {
-			if (myData[0][0] != data[0][0]) { // si date remontée différente de la dernière date 
+			//alert(data[0]);
+			if (myData[0][0] != data[0]) { // si date remontée différente de la dernière date 
 				nbredraw++;
 				$("#jauge").html("");
 				$("#courbe").html("");
 				$('*').unbind();
 				// DEBUG info
-	    		$("#code_5").html("Nb appel/actualisation : " + nbrequest + "/" + nbredraw + " ---- consommation t-6s : <b>" + myData[0][1] + "</b> watts à " + myData[0][0] + "  ---- consommation t : <b>" + data[0][1] + "</b> watts à " + data[0][0]);
+	    		$("#code_5").html("Nb appel/actualisation : " + nbrequest + "/" + nbredraw + " ---- consommation t-6s : <b>" + myData[0][1] + "</b> watts à " + myData[0][0] + "  ---- consommation t : <b>" + data[1] + "</b> watts à " + data[0]);
 	    		
 	    		myData.pop();
-	    		myData.unshift(data[0]);
+	    		myData.unshift(data);
 				$.jqplot('courbe', [myData], CreateCourbeRenderer());
 				
-	    		$.jqplot('jauge',[[data[0][1]]],CreateMeterGaugeRenderer());
-	        	s1 = data[0][1];
+	    		$.jqplot('jauge',[[data[1]]],CreateMeterGaugeRenderer());
+	        	s1 = data[1];
 			}
-    }});
+		},
+		error: function (xhr, textStatus, errorThrown) {
+			alert(errorThrown);
+		}
+    });
 }
 
 var nbrequest = 0;
@@ -162,7 +168,11 @@ function startTimer() {
 			$("#courbe").html("");
 			$('*').unbind();
 		   	repetAct();
-    }});
+		},
+		error: function (xhr, textStatus, errorThrown) {
+			alert(errorThrown);
+		}
+	});
 }
 
 function repetAct() {

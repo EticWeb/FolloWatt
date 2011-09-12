@@ -15,6 +15,7 @@ function connectSql() {
 	return $conn;
 }
 
+// Recupère la dernière valeur enregistrée en DB
 function getWattsRealTime() {
 	$link = connectSql();
 	$sql = "SELECT date,watts FROM xmldataRT ORDER BY date DESC LIMIT 0,1";
@@ -31,11 +32,13 @@ function getWattsRealTime() {
 	}
 	$row = mysql_fetch_assoc($result);
 	//echo "<br/>Nombre de lignes traitées : ".$cpt;
+	$jsonRet = '"'.$row['date'].'",'.$row['watts'];
 	mysql_free_result($result);
 	mysql_close($link);
-	return $row['watts'];
+	return $jsonRet;
 }
 
+// Recupère un historique des $limits dernières valeurs enregistrées en DB
 function getWattsLastRealTime($limit = 100) {
 	$link = connectSql();
 	$sql = "SELECT date,watts FROM xmldataRT ORDER BY date DESC LIMIT 0,".$limit;
@@ -57,7 +60,7 @@ function getWattsLastRealTime($limit = 100) {
 	//echo "<br/>Nombre de lignes traitées : ".$cpt;
 	mysql_free_result($result);
 	mysql_close($link);
-	return $jsonRet;
+	return substr($jsonRet, 0, -1);
 }
 
 // TRAITEMENT DES REQUETES HHTP //
